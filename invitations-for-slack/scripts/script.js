@@ -96,6 +96,7 @@ InvitationsForSlack.handler.invite_button = function ( e ) {
 		return;
 	}
 
+	$( button )[0].innerText = InvitationsForSlack.processing_text;
 
 	InvitationsForSlack.sendInvite( email_address, function ( response ) {
 		response = JSON.parse( response );

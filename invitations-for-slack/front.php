@@ -46,7 +46,8 @@ class SlackInviter_Front {
 			'teamInfo' => SlackInviter::get_setting( 'team_info', '' ),
 			'userIsMember' => SlackInviter_Core_Functions::registered_with_slack( get_current_user_id() ),
 			'template' => SlackInviter_Core_Functions::get_invite_box_template(),
-			'data' => SlackInviter_Core_Functions::prepare_invite_data()
+			'data' => SlackInviter_Core_Functions::prepare_invite_data(),
+			'processing_text' => __( 'Processing...', 'invitations-for-slack' )
 		) );
 
 	}
