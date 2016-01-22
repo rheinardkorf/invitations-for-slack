@@ -1,0 +1,229 @@
+* {
+    /*background: red;*/
+}
+
+.hidden {
+    display: none;
+}
+
+.invitations-for-slack-wrapper {
+    position: relative;
+    padding:0;
+    font-size: 15px;
+}
+
+.slackbadge_container {
+    position: relative;
+    font-size: 15px;
+}
+
+.invitations-for-slack-wrapper .team-numbers {
+    font-size: 12px;
+    display: inline-block;
+    padding: 0 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #8b8b8b;
+
+}
+
+.invitations-for-slack-wrapper .team-numbers {
+	position: relative;
+	background: #fafafa;
+	border: 1px solid #eeeeee;
+}
+.invitations-for-slack-wrapper .team-numbers:after, .invitations-for-slack-wrapper .team-numbers:before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.invitations-for-slack-wrapper .team-numbers:after {
+	border-color: rgba(221, 221, 221, 0);
+	border-right-color: #fafafa;
+	border-width: 3px;
+	margin-top: -3px;
+}
+.invitations-for-slack-wrapper .team-numbers:before {
+	border-color: rgba(238, 238, 238, 0);
+	border-right-color: #eeeeee;
+	border-width: 4px;
+	margin-top: -4px;
+}
+
+.slackbadge_container .button,
+.invitations-for-slack-wrapper .button {
+    background: #E14562;
+    color: #ffffff;
+    text-transform: none;
+    font-weight: normal;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.invitations-for-slack-wrapper .join-button {
+    font-size: 12px;
+    height: 25px;
+    padding: 0 10px 0 25px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin:0;
+}
+
+.invitations-for-slack-wrapper .join-button:after {
+    display: block;
+    width:16px;
+    height:16px;
+    background: url("icon.svg");
+    background-size: contain;
+    content: ' ';
+    position: absolute;
+    left: 5px;
+    top: 80%;
+    transform: translateY(-100%);
+}
+
+.invitations-for-slack-wrapper .button:hover {
+    /*background: #78C4CC;*/
+    background: #DFAA3A;
+}
+
+.slackbadge_container .invite-button,
+.invitations-for-slack-wrapper .invite-button {
+    width: 100%;
+}
+
+.slackbadge_container .invite-button.ok,
+.invitations-for-slack-wrapper .invite-button.ok {
+    background: #49C49F;
+}
+
+.slackbadge_container .invite-button.error,
+.invitations-for-slack-wrapper .invite-button.error {
+    background: #DFAA3A;
+}
+
+
+.invite-box-wrapper {
+	position: absolute;
+	background: #fafafa;
+	border: 1px solid #eeeeee;
+    padding: 10px;
+    margin-top: 10px;
+    z-index:10;
+
+}
+
+.slackbadge_container .invite-box-wrapper {
+    margin-top:0;
+}
+
+.invite-box-wrapper a.invite-box-reset {
+    cursor: pointer;
+}
+
+.slackbadge_container .invite-button,
+.invitations-for-slack-wrapper .invite-button {
+    margin-top: 10px;
+    text-transform: none;
+}
+
+.invite-box-wrapper:after, .invite-box-wrapper:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.invite-box-wrapper:after {
+	border-color: rgba(221, 221, 221, 0);
+	border-bottom-color: #fafafa;
+	border-width: 8px;
+	margin-left: -8px;
+    position: absolute;
+    left: 51px;
+}
+.invite-box-wrapper:before {
+	border-color: rgba(238, 238, 238, 0);
+	border-bottom-color: #eeeeee;
+	border-width: 9px;
+	margin-left: -9px;
+    position: absolute;
+    left: 51px;
+}
+
+.invite-box-wrapper {
+    text-align: center;
+    width: 320px;
+}
+
+.invite-box-wrapper input,
+.invite-box-wrapper button {
+    text-align: center;
+    font-size: 15px;
+}
+
+.invite-box-wrapper .online {
+    color: #E14562;
+}
+
+.invite-box-wrapper .registered {}
+
+
+#ifs_slackbadge {
+    cursor: pointer;
+}
+
+.dont-click #ifs_slackbadge {
+    cursor: auto;
+}
+
+#slackbadge_left {
+    fill: #E14562;
+}
+
+#ifs_slackbadge:hover #slackbadge_left {
+    fill: #DFAA3A;
+}
+
+.dont-click #ifs_slackbadge:hover #slackbadge_left {
+    fill: #E14562;
+}
+
+#slackbadge_right {
+    stroke:#eeeeee;
+    stroke-width:2;
+    fill: #fafafa;
+}
+
+#slackbadge_logo {
+    fill: #ffffff;
+}
+
+#slackbadge_slack_text,
+#slackbadge_stats_text {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    fill: #ffffff;
+}
+
+#slackbadge_slack_text {
+    fill: #ffffff;
+    font-size: 12px;
+}
+
+#slackbadge_stats_text {
+    fill: #8b8b8b;
+    font-size: 11px;
+}
