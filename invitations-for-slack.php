@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Invitations for Slack
-Plugin URI: http://rheinardkorf.com
-Description: Creates a landing page that allows your visitors to invite themselves to your Slack team.
-Version: 0.1-alpha
+Plugin URI: http://rheinard.org
+Description: Build a Slack community by allowing your visitors (or registered users) to invite themselves to your Slack team. Just add your Slack token and use the shortcodes wherever you want your visitors to be able to invite themselves from. Uses a convenient popup that communicates with Slack via the Slack API and WP REST API.
+Version: 0.1
 Author: Rheinard Korf
-Author URI: http://rheinardkorf.com
+Author URI: http://rheinard.org
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: invitations-for-slack
