@@ -1,5 +1,5 @@
 ## Invitations for Slack 
-Contributors: rheinardkorfvv
+Contributors: rheinardkorf  
 Tags: slack, invitations, community, join, invites  
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z5WNWM5V86D4W  
 Requires at least: 4.4  
