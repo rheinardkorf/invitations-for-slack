@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Invitations for Slack 0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/invitations-for-"
 "slack\n"
-"POT-Creation-Date: 2016-01-22 15:00:26+00:00\n"
+"POT-Creation-Date: 2016-01-22 15:08:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,43 +61,49 @@ msgid ""
 "forms. Use them on your invitation page(s)."
 msgstr ""
 
-#: invitations-for-slack/admin/settings.php:143
-msgid "the primary code to allow users to sign up"
+#: invitations-for-slack/admin/settings.php:144
+msgid "The primary code to allow users to sign up"
 msgstr ""
 
-#: invitations-for-slack/admin/settings.php:153
+#: invitations-for-slack/admin/settings.php:146
+msgid ""
+"Shows a smaller Slack badge. Clickable is \"yes\" by default. Specifying \"no"
+"\" will just show a static badge."
+msgstr ""
+
+#: invitations-for-slack/admin/settings.php:154
 #: invitations-for-slack/core/functions.php:144
 msgid ""
 "You need to be logged in to get your invite to join [TEAM_NAME] on Slack."
 msgstr ""
 
-#: invitations-for-slack/admin/settings.php:157
+#: invitations-for-slack/admin/settings.php:158
 msgid "Logged in users"
 msgstr ""
 
-#: invitations-for-slack/admin/settings.php:164
+#: invitations-for-slack/admin/settings.php:165
 msgid "Only logged in users can get invites."
 msgstr ""
 
-#: invitations-for-slack/admin/settings.php:170
+#: invitations-for-slack/admin/settings.php:171
 msgid ""
 "Allow e-mail different to user account e-mail. <small>( Not recommended )</"
 "small>"
 msgstr ""
 
-#: invitations-for-slack/admin/settings.php:172
+#: invitations-for-slack/admin/settings.php:174
 msgid "Message for visitors (logged out users)."
 msgstr ""
 
-#: invitations-for-slack/admin/settings.php:176
+#: invitations-for-slack/admin/settings.php:179
 msgid "Type in a message to display to logged out users. Keep it brief!"
 msgstr ""
 
-#: invitations-for-slack/admin/settings.php:177
+#: invitations-for-slack/admin/settings.php:180
 msgid "Use [TEAM_NAME] as a placeholder for your team's name."
 msgstr ""
 
-#: invitations-for-slack/admin/settings.php:230
+#: invitations-for-slack/admin/settings.php:233
 msgid "Invitations for Slack updated."
 msgstr ""
 
