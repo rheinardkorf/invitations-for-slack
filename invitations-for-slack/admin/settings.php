@@ -139,19 +139,20 @@ class SlackInviter_Admin_Settings {
 						<th scope="row"><?php echo esc_html( $title ); ?></th>
 						<td>
 							<p class="description"><?php esc_html_e( 'The following shortcodes are required to create the the Slack invitation forms. Use them on your invitation page(s).', 'invitations-for-slack' ); ?></p>
-							<p><code>[invitations_for_slack]</code>
-								- <?php esc_html_e( 'the primary code to allow users to sign up', 'invitations-for-slack' ); ?>
-							</p>
-							<!--							<p><code>[invitations_for_slack]</code> - -->
-							<?php //esc_html_e( 'the primary code to allow users to sign up', 'invitations-for-slack' ); ?><!--</p>-->
+							<dl>
+								<dt><code>[invitations_for_slack]</code></dt>
+								<dd><?php esc_html_e( 'The primary code to allow users to sign up', 'invitations-for-slack' ); ?></dd>
+								<dt><code>[invitations_for_slack_badge clickable="yes|no"]</code></dt>
+								<dd><?php esc_html_e( 'Shows a smaller Slack badge. Clickable is "yes" by default. Specifying "no" will just show a static badge.', 'invitations-for-slack' ); ?></dd>
+							</dl>
 						</td>
 					</tr>
 
 					<!-- LOGGED IN USERS -->
 					<?php
 					$logged_in_message = SlackInviter::get_setting( 'logged_in_message',
-							__( 'You need to be logged in to get your invite to join [TEAM_NAME] on Slack.', 'invitations-for-slack' )
-						);
+						__( 'You need to be logged in to get your invite to join [TEAM_NAME] on Slack.', 'invitations-for-slack' )
+					);
 					?>
 					<tr>
 						<?php $title = __( 'Logged in users', 'invitations-for-slack' ); ?>
@@ -169,7 +170,9 @@ class SlackInviter_Admin_Settings {
 								       value="1" <?php checked( '1', SlackInviter::get_setting( 'use_different_email', false ) ); ?> />
 								<?php _e( 'Allow e-mail different to user account e-mail. <small>( Not recommended )</small>', SlackInviter::$td ); ?>
 							</label><br/>
-							<p><strong><?php esc_html_e( 'Message for visitors (logged out users).', 'invitations-for-slack' ); ?></strong></p>
+							<p>
+								<strong><?php esc_html_e( 'Message for visitors (logged out users).', 'invitations-for-slack' ); ?></strong>
+							</p>
 							<textarea id="slackinviter_options[logged_in_message]"
 							          name="slackinviter_options[logged_in_message]"
 							          style="min-width: 320px; min-height:140px;"><?php echo esc_html( $logged_in_message ); ?></textarea>
