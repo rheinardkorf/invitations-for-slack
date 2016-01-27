@@ -20,7 +20,7 @@ your Slack token and use the shortcodes wherever you want your visitors to be ab
     * Visit <https://api.slack.com/web> to generate your Slack token.
     * Add the token to the plugin settings.
     * Use the [invitations_for_slack] or [invitations_for_slack_badge] shortcodes.
-* Invitations are performed using the WP REST API which in turn communicates the Slack API. No page reloads.
+* Invitations are performed using the WP REST API which in turn communicates with the Slack API. No page reloads.
 
 ### Requirements:
 
