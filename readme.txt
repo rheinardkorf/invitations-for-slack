@@ -29,10 +29,29 @@ your Slack token and use the shortcodes wherever you want your visitors to be ab
 
 == Installation ==
 
-After installing you will need to add your Slack API token to the plugin settings.
+To get **Invitations for Slack** working, please follow these steps.
+
+1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
+1. Activate "Invitations for Slack" through the 'Plugins' screen in WordPress
+1. Once activated, click on the new "Invitations for Slack" menu item to configure your settings.
+1. Make sure you get your Slack API token from <https://api.slack.com/web>
+
+Now just use the &#91;invitations_for_slack&#93; and/or &#91;invitations_for_slack_badge&#93; shortcodes where you want your users to register from.
+
+== Screenshots ==
+
+1. Normal button version : &#91;invitations_for_slack&#93;.
+2. Badge version: &#91;invitations_for_slack_badge&#93;.
+3. Restricted to logged in users (as per settings).
+4. Logged in user and alternate e-mail allowed OR unrestricted, anyone can register.
+5. Already part of the team. Other errors have similar appearance.
+6. Invitation sent successfully!
+7. Plugin setup screen.
 
 == Changelog ==
 
+== 1.0.0 ==
+* First public release.
+
 == 0.1 ==
 * Initial plugin release.
-
