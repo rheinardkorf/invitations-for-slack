@@ -5,7 +5,7 @@
  *
  * @param $classname
  */
-function autoload_function( $classname )
+function invitations_for_slack_autoload_function( $classname )
 {
     $class = str_replace( '\\', DIRECTORY_SEPARATOR, str_replace( '_', DIRECTORY_SEPARATOR, strtolower($classname) ) );
     $filePath = SlackInviter::$dir . str_replace( 'slackinviter', SlackInviter::$class_path, $class ) . '.php';
@@ -16,4 +16,4 @@ function autoload_function( $classname )
     }
 }
 
-spl_autoload_register('autoload_function');
+spl_autoload_register('invitations_for_slack_autoload_function');
