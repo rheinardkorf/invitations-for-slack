@@ -25,7 +25,7 @@ your Slack token and use the shortcodes wherever you want your visitors to be ab
 ### Requirements:
 
 * A Slack team and the team's access token.
-* A self-/hosted WordPress website (Not a WordPress.com website.)
+* A self-hosted WordPress website (Not a WordPress.com website.)
 
 == Installation ==
 
@@ -36,12 +36,12 @@ To get **Invitations for Slack** working, please follow these steps.
 1. Once activated, click on the new "Invitations for Slack" menu item to configure your settings.
 1. Make sure you get your Slack API token from <https://api.slack.com/web>
 
-Now just use the &#91;invitations_for_slack&#93; and/or &#91;invitations_for_slack_badge&#93; shortcodes where you want your users to register from.
+Now just use the [invitations_for_slack] and/or [invitations_for_slack_badge] shortcodes where you want your users to register from.
 
 == Screenshots ==
 
-1. Normal button version : &#91;invitations_for_slack&#93;.
-2. Badge version: &#91;invitations_for_slack_badge&#93;.
+1. Normal button version : [invitations_for_slack].
+2. Badge version: [invitations_for_slack_badge].
 3. Restricted to logged in users (as per settings).
 4. Logged in user and alternate e-mail allowed OR unrestricted, anyone can register.
 5. Already part of the team. Other errors have similar appearance.
@@ -50,8 +50,8 @@ Now just use the &#91;invitations_for_slack&#93; and/or &#91;invitations_for_sla
 
 == Changelog ==
 
-== 1.0.0 ==
+= 1.0.0 =
 * First public release.
 
-== 0.1 ==
+= 0.1 =
 * Initial plugin release.
