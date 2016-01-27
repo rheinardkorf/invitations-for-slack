@@ -1,12 +1,12 @@
 ## Invitations for Slack  
-Contributors: rheinardkorf
-Tags: slack, invitations, community, join, invites
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z5WNWM5V86D4W
-Requires at least: 4.4
-Tested up to: 4.4.1
-Stable tag: trunk
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Contributors: rheinardkorf  
+Tags: slack, invitations, community, join, invites  
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z5WNWM5V86D4W  
+Requires at least: 4.4  
+Tested up to: 4.4.1  
+Stable tag: trunk  
+License: GPLv2 or later  
+License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
 Build a Slack community by allowing your visitors (or registered users) to invite themselves to your Slack team.
 
