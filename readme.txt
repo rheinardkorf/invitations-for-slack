@@ -50,6 +50,9 @@ Now just use the [invitations_for_slack] and/or [invitations_for_slack_badge] sh
 
 == Changelog ==
 
+= 1.0.1 =
+* Popup now shows above elements with overflow set to hidden.
+
 = 1.0.0 =
 * First public release.
 
