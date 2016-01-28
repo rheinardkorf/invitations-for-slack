@@ -165,10 +165,22 @@ InvitationsForSlack.UI = InvitationsForSlack.UI || {};
 			 */
 			$( '.invitations-for-slack-wrapper .button.join-button, #ifs_slackbadge' ).on( 'click', function ( e ) {
 
-				var invite_box = {};
+				var join_button = this;
+				var ref = '';
 
-				if ( $( this ).siblings( '.invite-box-wrapper' ).length > 0 ) {
-					invite_box = $( this ).siblings( '.invite-box-wrapper' )[0];
+				// If the button doesn't have a ref, give it one.
+				if( typeof $( join_button ).attr( 'data-ref' ) == 'undefined' ) {
+					var timestamp = $.now();
+					$( join_button ).attr( 'data-ref', 'ifs-' + timestamp );
+					ref = 'ifs-' + timestamp;
+				} else {
+					ref = $( join_button ).attr( 'data-ref' );
+				}
+
+				var invite_box = $( '.invite-box-wrapper[data-button="' + ref + '"]' );
+
+				if ( invite_box.length > 0 ) {
+					invite_box = $( invite_box )[0];
 				} else {
 					var parent = $( this ).parents( '.invitations-for-slack-wrapper' );
 					if ( parent.length < 1 ) {
@@ -182,10 +194,9 @@ InvitationsForSlack.UI = InvitationsForSlack.UI || {};
 
 					if ( InvitationsForSlack.vars.lastParent.length > 0 ) {
 						$( InvitationsForSlack.vars.lastParent ).append( InvitationsForSlack.templateReplace() );
-						$( InvitationsForSlack.vars.lastParent ).find( '.button.invite-button' ).on( 'click', InvitationsForSlack.handler.invite_button );
-						$( InvitationsForSlack.vars.lastParent ).find( '.invite-box-reset' ).on( 'click', InvitationsForSlack.handler.invite_reset );
 						invite_box = $( this ).siblings( '.invite-box-wrapper' )[0];
-						var invite_button = $( InvitationsForSlack.vars.lastParent ).find( '.invite-button' );
+						$( invite_box ).attr( 'data-button', ref );
+						var invite_button = $( '[data-ref="' + ref + '"' );
 						if ( invite_button.length > 0 ) {
 							InvitationsForSlack.vars.originalInviteButtonText = $( invite_button )[0].innerHTML;
 						}
@@ -194,7 +205,24 @@ InvitationsForSlack.UI = InvitationsForSlack.UI || {};
 
 				// Toggle
 				if ( $( invite_box ).hasClass( 'hidden' ) ) {
+					$( invite_box ).detach();
+					$( 'body' ).append( invite_box );
+					$( invite_box ).find( '.button.invite-button' ).on( 'click', InvitationsForSlack.handler.invite_button );
+					$( invite_box ).find( '.invite-box-reset' ).on( 'click', InvitationsForSlack.handler.invite_reset );
 					$( invite_box ).removeClass( 'hidden' );
+
+					var offset = $(join_button).offset();
+					var window_edge = $(window).width() - ( offset.left + $( invite_box ).width() );
+					var adjust = window_edge < 0;
+					var box_left = adjust ? ( offset.left + window_edge - 25 ) : offset.left;
+					if( adjust ) {
+						$(invite_box ).addClass('adjust-right');
+					} else {
+						$(invite_box ).removeClass('adjust-right');
+					}
+					$( invite_box ).css('position', 'absolute');
+					$( invite_box ).css( 'top', ( offset.top + $( join_button ).height() ) );
+					$( invite_box ).css( 'left', box_left );
 				} else {
 					$( invite_box ).addClass( 'hidden' );
 				}

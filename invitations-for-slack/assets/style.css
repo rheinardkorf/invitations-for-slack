@@ -6,7 +6,8 @@
     display: none;
 }
 
-.invitations-for-slack-wrapper {
+.invitations-for-slack-wrapper,
+.invite-box-wrapper {
     position: relative;
     padding:0;
     font-size: 15px;
@@ -59,7 +60,8 @@
 }
 
 .slackbadge_container .button,
-.invitations-for-slack-wrapper .button {
+.invitations-for-slack-wrapper .button,
+.invite-box-wrapper .button {
     background: #E14562;
     color: #ffffff;
     text-transform: none;
@@ -97,17 +99,17 @@
 }
 
 .slackbadge_container .invite-button,
-.invitations-for-slack-wrapper .invite-button {
+.invite-box-wrapper .invite-button {
     width: 100%;
 }
 
 .slackbadge_container .invite-button.ok,
-.invitations-for-slack-wrapper .invite-button.ok {
+.invite-box-wrapper .invite-button.ok {
     background: #49C49F;
 }
 
 .slackbadge_container .invite-button.error,
-.invitations-for-slack-wrapper .invite-button.error {
+.invite-box-wrapper .invite-button.error {
     background: #DFAA3A;
 }
 
@@ -162,6 +164,11 @@
 	margin-left: -9px;
     position: absolute;
     left: 51px;
+}
+
+.invite-box-wrapper.adjust-right:after,
+.invite-box-wrapper.adjust-right:before {
+    left: 101px;
 }
 
 .invite-box-wrapper {
