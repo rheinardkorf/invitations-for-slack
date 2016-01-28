@@ -50,6 +50,10 @@ Now just use the [invitations_for_slack] and/or [invitations_for_slack_badge] sh
 
 == Changelog ==
 
+= 1.0.2 =
+* Better handling of channel names to join.
+* Reset link for invite form now shows and hides appropriately.
+
 = 1.0.1 =
 * Popup now shows above elements with overflow set to hidden.
 

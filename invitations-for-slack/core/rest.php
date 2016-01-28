@@ -89,56 +89,102 @@ class SlackInviter_Core_Rest {
 
 		$token       = SlackInviter::get_setting( 'web_api_token', '' );
 		$team_domain = SlackInviter::get_setting( 'team_domain', '' );
-		$channels    = SlackInviter::get_setting( 'channels', '' );
-		$channels    = implode( ",", $channels );
+
 		$slack_url   = ! empty( $team_domain ) ? 'https://' . $team_domain . '.slack.com' : 'https://slack.com';
 
 		$data = array(
-			'email'      => sanitize_email( $params['ifs_email'] ),
-			'channels'   => $channels,
-			'first_name' => '',
 			'token'      => trim( $token ),
-			'set_active' => 'true',
-			'_attempts'  => '1',
 		);
+
+		// Get Channels
 		if ( ! empty( $token ) ) {
-			$response = wp_remote_post( $slack_url . '/api/users.admin.invite?t=1', array( 'body' => $data ) );
+			$response = wp_remote_post( $slack_url . '/api/channels.list?t=1', array( 'body' => $data ) );
 		} else {
 			$response = new WP_Error();
 		}
 
-		$message = '';
+		$message = __( 'Oops. Can\'t talk to Slack right now.', 'invitations-for-slack' );
 		$status  = false;
-		$reason  = '';
-
 		if ( ! is_wp_error( $response ) && 200 === wp_remote_retrieve_response_code( $response ) ) {
-			$invite = json_decode( wp_remote_retrieve_body( $response ) );
-			if ( $invite->ok ) {
-				$message = __( 'You\'re Invited! Check your inbox.', 'invitations-for-slack' );
-				$status  = true;
-			}
-			if ( isset( $invite->error ) ) {
-				switch ( $invite->error ) {
-					case 'already_in_team' :
-						$message = __( 'Already part of the team!', 'invitations-for-slack' );
-						break;
-					case 'already_invited' :
-					case 'sent_recently' :
-						$message = __( 'Already sent. Check your inbox.', 'invitations-for-slack' );
-						break;
-					case 'invalid_email' :
-						$message = __( 'Oops. Invalid e-mail address.', 'invitations-for-slack' );
-						break;
-					default:
-						$message = sprintf( __( '"%s". Let us know!', 'invitations-for-slack' ), $invite->error );
-						break;
+			$channels_list = json_decode( wp_remote_retrieve_body( $response ) );
+			if ( $channels_list->ok ) {
+
+				$data = array(
+					'email'      => sanitize_email( $params['ifs_email'] ),
+					'channels'   => self::get_channels_for_invite( self::map_channels( $channels_list->channels ) ),
+					'first_name' => '',
+					'token'      => trim( $token ),
+					'set_active' => 'true',
+					'_attempts'  => '1',
+				);
+
+				// Attempt Invite
+				if ( ! empty( $token ) ) {
+					$response = wp_remote_post( $slack_url . '/api/users.admin.invite?t=1', array( 'body' => $data ) );
+				} else {
+					$response = new WP_Error();
 				}
-				$status = false;
-				$reason = $invite->error;
+
+				$reason = '';
+
+				if ( ! is_wp_error( $response ) && 200 === wp_remote_retrieve_response_code( $response ) ) {
+					$invite = json_decode( wp_remote_retrieve_body( $response ) );
+					if ( $invite->ok ) {
+						$message = __( 'You\'re Invited! Check your inbox.', 'invitations-for-slack' );
+						$status  = true;
+					}
+					if ( isset( $invite->error ) ) {
+						switch ( $invite->error ) {
+							case 'already_in_team' :
+								$message = __( 'Already part of the team!', 'invitations-for-slack' );
+								break;
+							case 'already_invited' :
+							case 'sent_recently' :
+								$message = __( 'Already sent. Check your inbox.', 'invitations-for-slack' );
+								break;
+							case 'invalid_email' :
+								$message = __( 'Oops. Invalid e-mail address.', 'invitations-for-slack' );
+								break;
+							default:
+								$message = sprintf( __( '"%s". Let us know!', 'invitations-for-slack' ), $invite->error );
+								break;
+						}
+						$status = false;
+						$reason = $invite->error;
+					}
+				}
 			}
 		}
 
 		return array( 'invite_successful' => $status, 'message' => $message, 'reason' => $reason );
+	}
+
+	public static function map_channels( $channels_list ) {
+
+		$channels = array( 'archived' => array(), 'active' => array() );
+
+		foreach( $channels_list as $channel ) {
+			if( ! $channel->is_archived ) {
+				$channels[ 'active' ][ $channel->id ] = $channel->name;
+			} else {
+				$channels[ 'archived' ][ $channel->id ] = $channel->name;
+			}
+		}
+
+		return $channels;
+	}
+
+	public static function get_channels_for_invite( $channels ) {
+		$expected_channels = SlackInviter::get_setting( 'channels', '' );
+
+		$channel_ids = array();
+		foreach( $channels['active'] as $id => $name ) {
+			if( in_array( $name, $expected_channels ) ) {
+				$channel_ids[] = $id;
+			}
+		}
+
+		return implode( ",", $channel_ids );
 	}
 
 }

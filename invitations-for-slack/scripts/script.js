@@ -107,7 +107,7 @@ InvitationsForSlack.handler.invite_button = function ( e ) {
 		// Update button text and hide the input field
 		$( button )[0].innerText = response.message;
 		$( button ).siblings( 'input' ).addClass( 'hidden' );
-		$( InvitationsForSlack.vars.lastParent ).find( '.invite-box-reset' ).removeClass( 'hidden' );
+		$( button ).siblings( '.invite-box-reset' ).removeClass( 'hidden' );
 
 		if ( response.invite_successful ) {
 			$( button ).addClass( 'ok' );
@@ -126,7 +126,7 @@ InvitationsForSlack.handler.invite_reset = function ( e ) {
 	e.preventDefault();
 	e.stopImmediatePropagation();
 
-	var button = $( InvitationsForSlack.vars.lastParent ).find( '.button.invite-button' );
+	var button = $( this ).siblings( '.button.invite-button' );
 
 	$( button ).attr( 'data-state', 'active' );
 	$( button ).removeClass( 'error' );
@@ -134,7 +134,7 @@ InvitationsForSlack.handler.invite_reset = function ( e ) {
 	$( button )[0].innerText = InvitationsForSlack.vars.originalInviteButtonText;
 	$( button ).siblings( 'input' ).removeClass( 'hidden' );
 	$( button ).siblings( 'input' ).val( '' );
-	$( InvitationsForSlack.vars.lastParent ).find( '.invite-box-reset' ).addClass( 'hidden' );
+	$( this ).addClass( 'hidden' );
 
 }
 
@@ -228,17 +228,6 @@ InvitationsForSlack.UI = InvitationsForSlack.UI || {};
 				}
 
 			} );
-
-
-			/**
-			 * Invite Button Clicked
-			 */
-			$( InvitationsForSlack.vars.lastParent ).find( '.button.invite-button' ).on( 'click', InvitationsForSlack.handler.invite_button );
-
-			/**
-			 * Reset Invite Box
-			 */
-			$( InvitationsForSlack.vars.lastParent ).find( '.invite-box-reset' ).on( 'click', InvitationsForSlack.handler.invite_reset );
 
 
 		} );
