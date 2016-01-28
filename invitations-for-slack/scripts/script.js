@@ -90,7 +90,7 @@ InvitationsForSlack.handler.invite_button = function ( e ) {
 	if ( state === 'active' ) {
 		$( button ).attr( 'data-state', 'processing' );
 	} else if ( state === 'processed' ) {
-		$( InvitationsForSlack.vars.lastParent ).find( '.invite-box-wrapper' ).addClass( 'hidden' );
+		$( button ).parents( '.invite-box-wrapper' ).addClass( 'hidden' );
 		return;
 	} else {
 		return;

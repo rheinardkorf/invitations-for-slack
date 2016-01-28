@@ -182,6 +182,10 @@
     font-size: 15px;
 }
 
+.invite-box-wrapper input[type="text"] {
+    margin-bottom: 10px;
+}
+
 .invite-box-wrapper .online {
     color: #E14562;
 }
