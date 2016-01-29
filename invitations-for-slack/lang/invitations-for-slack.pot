@@ -38,10 +38,6 @@ msgid ""
 "administrator of the team."
 msgstr ""
 
-#: invitations-for-slack/admin/settings.php:107
-msgid "Stripe Team: %s"
-msgstr ""
-
 #: invitations-for-slack/admin/settings.php:118
 msgid "Channels to join"
 msgstr ""
