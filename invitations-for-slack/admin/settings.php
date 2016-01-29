@@ -104,7 +104,6 @@ class SlackInviter_Admin_Settings {
 									echo sprintf( __( 'You can generate you WEB API token at %s. Note: You will need to be an administrator of the team.', 'invitations-for-slack' ), '<a href="https://api.slack.com/web">https://api.slack.com/web</a>' );
 									?>
 								</p>
-								<p><?php sprintf( __( 'Stripe Team: %s', 'invitations-for-slack' ), $team->name ); ?></p>
 							</fieldset>
 						</td>
 					</tr>
